@@ -81,7 +81,6 @@ def load_base_words() -> Set[str]:
         "adidas", "nike", "samsung", "philips", "sony", "lg", "whirlpool",
         "garbarino", "falabella", "coto", "carrefour", "walmart", "easy",
         "mercadolibre", "amazon", "apple", "microsoft", "google",
-        # Agregados
         "starbucks", "mcdonalds", "burguerking", "mostaza", "wendys", "cafe",
         "cafe tortoni", "iluminacion", "cafe de los artistas"
     }
@@ -92,10 +91,8 @@ def load_base_words() -> Set[str]:
         "huracan", "talleres", "belgrano", "banfield", "lanus"
     }
     
-    # Años (expandido)
     años = {str(year) for year in range(1900, 2050)}
     
-    # Comercios y lugares
     comercios = {
     "shopping", "unicenter", "abasto", "altoplata", "dotbaires", 
     "galeria", "plaza", "terminal", "estacion", "aeropuerto", 
@@ -149,21 +146,21 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
     if include_special:
         chars += special_chars
     
-    # Generar combinaciones básicas
+    
     for word in words:
         if len(word) <= max_len:
-            # Variaciones básicas
+            
             result.add(word.lower())
             result.add(word.upper())
             result.add(word.title())
             
-            # Números al final
+            
             for i in range(1000):
                 new_word = f"{word}{i}"
                 if len(new_word) <= max_len:
                     result.add(new_word)
             
-            # Combinaciones leetspeak
+            
             leetspeak = (word.lower()
                         .replace('a', '4')
                         .replace('e', '3')
@@ -173,7 +170,7 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
             if len(leetspeak) <= max_len:
                 result.add(leetspeak)
             
-            # Caracteres especiales si están habilitados
+            
             if include_special:
                 for char in special_chars:
                     new_word = f"{word}{char}"
@@ -181,7 +178,7 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
                         result.add(new_word)
                         result.add(f"{char}{word}")
     
-    # Combinaciones de dos palabras
+    
     words_list = list(words)
     for _ in range(min(len(words_list) * 10, 5000)):
         word1 = random.choice(words_list)
@@ -190,7 +187,7 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
         if len(combined) <= max_len:
             result.add(combined.lower())
     
-    # Generar combinaciones aleatorias de letras y números
+    
     for _ in range(5000):
         length = random.randint(6, max_len)
         random_str = ''.join(random.choices(chars, k=length))
@@ -207,7 +204,7 @@ def main():
 
     print_banner()
     
-    # Determinar configuración
+    
     if args.s:
         max_len = 8
         max_words = 20000
@@ -216,24 +213,24 @@ def main():
         max_len = 12
         max_words = 100000
         include_special = True
-    else:  # -l o sin parámetros
+    else:  
         max_len = 20
         max_words = None
         include_special = True
 
-    # Generar palabras
+    
     base_words = load_base_words()
     wordlist = generate_combinations(base_words, max_len, include_special)
     
-    # Limitar cantidad si es necesario
+    
     if max_words:
         wordlist = set(list(wordlist)[:max_words])
     
-    # Generar nombre de archivo con timestamp
+    
     timestamp = int(time.time())
     filename = f'spanish-dict_{timestamp}.txt'
     
-    # Guardar resultado
+    
     with open(filename, 'w', encoding='utf-8') as f:
         for word in sorted(wordlist):
             f.write(f"{word}\n")
