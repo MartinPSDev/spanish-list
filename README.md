@@ -1,6 +1,6 @@
 # Spanish List 
 
-[![Imagen de tu proyecto](spanish_list.py)]
+<img src="image.png" alt="Captura de pantalla de ConnectMeGUI" width="500">
 
 **Generador de diccionarios en español personalizados.**
 
