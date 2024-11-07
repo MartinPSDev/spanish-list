@@ -16,7 +16,7 @@ Puedes agregar, si es necesario, centros educativos, cafeterias, equipos deporti
 
 ## Uso
 ```bash
-# Asegúrate de tener Python instalado
+chmod +x spanish_list.py
 python spanish_list.py  # sin parametros genera todas las combinaciones posibles
 -s # genera 20.000 palabras
 -m # genera 100.000 palabras 
