@@ -132,8 +132,9 @@ def load_base_words() -> Set[str]:
 
     universidades = {
         "uba", "utn", "universidad de buenos aires", "universidad nacional de la plata",
-        "universidad nacional de cordoba", "universidad de la matanza"
-        "colegio", "escuela", "escuela tecnica"
+        "universidad nacional de cordoba", "universidad de la matanza", "universidad catolica",
+        "uca","um","uno","unlam","unahur","uade","up","usal","unlu","uflo","ub","untref","unsam",
+        "colegio", "escuela", "escuela tecnica","unla","uai"
     }
      
     return nombres | lugares | empresas | deportes | años | comercios | universidades
