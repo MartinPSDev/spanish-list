@@ -175,13 +175,16 @@ def load_base_words() -> Set[str]:
         "uba", "utn", "universidaddebuenosaires", "universidadnacionaldelaplata",
         "universidadnacionaldecordoba", "universidaddelamatanza", "universidadcatolica",
         "uca","um","uno","unlam","unahur","uade","up","usal","unlu","uflo","ub","untref","unsam",
-        "colegio", "escuela", "escuela tecnica","unla","uai"
+        "colegio", "escuela", "escuela1","escuela2","escuela3","escuela4","escuela5","escuela6",
+        "escuela7","escuela8","escuela9","escuela10","escuela11","escuela12","escuela13","escuela14"
+        "escuelatecnica", "EEM","unla","uai",
     }
 
     frases_cortas = {
         "laverdadnoslibera", "eltiempopasa", "nuncasabremos", "siguetusalud", 
         "unmundomejor", "lavidaesbella", "nuncasinsentido", "elamorvence", 
-        "sueñosyrealidad", "juntosporsiempre","teamo","elamordemivida","campeonesdelmundo"
+        "sueñosyrealidad", "juntosporsiempre","teamo","elamordemivida","campeonesdelmundo",
+        "pagaelwifirata", "colgatedeesta","redoculta","redprivada"
     }
 
 
