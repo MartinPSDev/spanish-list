@@ -1,6 +1,6 @@
 # Spanish List 
 
-[![Imagen de tu proyecto](image.png)]
+[![image](./image.jpg)]
 
 **Generador de diccionarios en español personalizados.**
 
