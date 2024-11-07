@@ -60,14 +60,15 @@ def load_base_words() -> Set[str]:
     apellidos = {
         "perez", "lopez", "ramirez", "soto", "nunez", "gonzalez", "fernandez", "martinez", 
         "rodriguez", "diaz", "torres", "castro", "vazquez", "morales", "jimenez", 
-        "hernandez", "pineda", "salazar", "mendoza", "carrillo", "sandoval","nuñez"
+        "hernandez", "pineda", "salazar", "mendoza", "carrillo", "sandoval","nuñez","maradona",
+        "messi"
     }
 
 
     
     nicknames = {
         "tincho", "rodo", "fran", "licha", "pato", "guille", "pipa", "tato", "chino", "lucho",
-        "rama","pancho", "santi", "joaco", "rulo", "pela", "mudo", "negro", "colo", "pipi"
+        "rama","pancho", "santi", "joaco", "rulo", "pela", "mudo", "negro", "colo", "pipi","lio"
     }
 
 
@@ -154,7 +155,7 @@ def load_base_words() -> Set[str]:
     frases_cortas = {
         "laverdadnoslibera", "eltiempopasa", "nuncasabremos", "siguetusalud", 
         "unmundomejor", "lavidaesbella", "nuncasinsentido", "elamorvence", 
-        "sueñosyrealidad", "juntosporsiempre","teamo","elamordemivida"
+        "sueñosyrealidad", "juntosporsiempre","teamo","elamordemivida","campeonesdelmundo"
     }
 
 
@@ -271,7 +272,7 @@ def main():
         include_special = True
     else:  
         max_len = 20
-        max_words = 800000  
+        max_words = 500000  
         include_special = True
 
     base_words = load_base_words()
