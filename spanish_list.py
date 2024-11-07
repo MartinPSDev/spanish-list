@@ -160,21 +160,21 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
     result = set()
     chars = string.ascii_letters + string.digits
     special_chars = "!@#$%^&*-_+=."
-    
+
     if include_special:
         chars += special_chars
-    
+
     for word in words:
         if len(word) <= max_len:
             result.add(word.lower())
             result.add(word.upper())
             result.add(word.title())
-            
+
             for i in range(1000):
                 new_word = f"{word}{i}"
                 if len(new_word) <= max_len:
-                    result.add(new_word)
-            
+                    result.add(str(new_word))  
+
             leetspeak = (word.lower()
                         .replace('a', '4')
                         .replace('e', '3')
@@ -183,14 +183,13 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
                         .replace('s', '5'))
             if len(leetspeak) <= max_len:
                 result.add(leetspeak)
-            
+
             if include_special:
                 for char in special_chars:
                     new_word = f"{word}{char}"
                     if len(new_word) <= max_len:
-                        result.add(new_word)
-                        result.add(f"{char}{word}")
-    
+                        result.add(str(new_word))
+                        result.add(str(f"{char}{word}"))
     words_list = list(words)
     for _ in range(min(len(words_list) * 10, 5000)):
         word1 = random.choice(words_list)
