@@ -2,7 +2,7 @@
 
 ![image](./image.jpg)
 
-**Generador de diccionarios en español personalizados.**
+**Generador de diccionarios en español**
 
 Este script Python crea diccionarios en español con un enfoque en el vocabulario argentino, pero es fácilmente adaptable a cualquier región.
 Sientete libre modificar el codigo y agregar las palabras que sean necesarias de acuerdo a tu ciudad, estado, pais.
