@@ -12,6 +12,8 @@ Puedes agregar, si es necesario, centros educativos, cafeterias, equipos deporti
 ## Características
 * **Tres tamaños de diccionario:** Short (20K palabras), Medium (100K palabras) y Large (todas las combinaciones posibles).
 * **Personalizable:** Agrega tus propias palabras para adaptar el diccionario a tus necesidades específicas.
+* Se limitó el maximo de palabras en la opcion por defecto a 500.000 palabras por temas de rendimiento. Si su cpu lo permite puede modificar
+    la linea 275 donde dice max_words = 500000 y aumentarlo si lo desea
 
 
 ## Uso
