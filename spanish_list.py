@@ -19,6 +19,7 @@ def print_banner():
                      by @M4rt1n_0x1337
     """
     print(banner)
+
 def load_base_words() -> Set[str]:
     nombres = {
     "abigail", "abel", "abraham", "adalberto", "adela", "adelaida", "adrian", "adriana", 
@@ -162,6 +163,7 @@ def load_base_words() -> Set[str]:
     return nombres | apellidos | nicknames | lugares | empresas | deportes | comercios | universidades | frases_cortas | anios
 
 
+
 def generate_combinations(words: Set[str], max_len: int, include_special: bool) -> Set[str]:
     result = set()
     chars_upper = string.ascii_uppercase + string.digits
@@ -269,37 +271,42 @@ def main():
         include_special = True
     else:  
         max_len = 20
-        max_words = 800000
+        max_words = 800000  
         include_special = True
 
     base_words = load_base_words()
-   
+    
     global stop_spinner
     stop_spinner = threading.Event()
     spinner_thread = threading.Thread(target=spinning_cursor)
     spinner_thread.start()
 
-    wordlist = generate_combinations(base_words, max_len, include_special)
-    
-    if max_words:
-        wordlist = set(list(wordlist)[:max_words])
-    
-    timestamp = int(time.time())
-    filename = f'spanish-dict_{timestamp}.txt'
-    
-    with open(filename, 'w', encoding='utf-8') as f:
-        for word in sorted(wordlist):
-            f.write(f"{word}\n")
-    
-    print(f"\nDiccionario generado con {len(wordlist)} palabras")
-    print(f"Archivo guardado como: {filename}")
+    try:
+        wordlist = generate_combinations(base_words, max_len, include_special)
+        
+        if max_words:
+            wordlist = set(list(wordlist)[:max_words])
+        
+        timestamp = int(time.time())
+        filename = f'spanish-dict_{timestamp}.txt'
+        
+        with open(filename, 'w', encoding='utf-8') as f:
+            for word in sorted(wordlist):
+                f.write(f"{word}\n")
+        
+        print(f"\nDiccionario generado con {len(wordlist)} palabras")
+        print(f"Archivo guardado como: {filename}")
 
-    
-    stop_spinner.set()
-    spinner_thread.join()  
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        
+        stop_spinner.set()
+        spinner_thread.join()  
 
-    sys.stdout.write('\r' + ' ' * 30 + '\r')
-    sys.stdout.flush()
+        
+        sys.stdout.write('\r' + ' ' * 30 + '\r')
+        sys.stdout.flush()  
 
 if __name__ == "__main__":
     main()
