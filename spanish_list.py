@@ -53,11 +53,22 @@ def load_base_words() -> Set[str]:
     "teodoro", "teresa", "tomás", "ulises", "ursula", "valentina", "valeria", "vanessa", 
     "verónica", "vicente", "victor", "victoria", "viviana", "wilfredo", "ximena", 
     "yolanda", "yvette", "zaida", "zoe", "zulema"
-}
+    }
 
     
-    
-    nombres.update(nombres)
+
+    apellidos = {
+        "perez", "lopez", "ramirez", "soto", "nunez", "gonzalez", "fernandez", "martinez", 
+        "rodriguez", "diaz", "torres", "castro", "vazquez", "morales", "jimenez", 
+        "hernandez", "pineda", "salazar", "mendoza", "carrillo", "sandoval","nuñez"
+    }
+
+    nicknames = {
+        "tincho", "rodo", "fran", "licha", "pato", "guille", "pipa", "tato", "chino", "lucho",
+        "rama","pancho", "santi", "joaco", "rulo", "pela", "mudo", "negro", "colo", "pipi"
+    }
+
+
 
     lugares = {
         "buenosaires", "cordoba", "rosario", "mendoza", "laplata", "quilmes", "lanus",
@@ -69,11 +80,11 @@ def load_base_words() -> Set[str]:
         "tierradelfuego", "tucuman", "rosario", "san fernando", "sanmiguel", "moron", 
         "tresdefebrero", "berazategui", "berisso", "lomasdezamora", "sanmartin", "marcospaz", 
         "caba", "villamaria", "bahiablanca", "parana", "posadas", "lasheras", "calafate", "sanrafael", "sanjuan", 
-        "tigre", "salta", "chaco", "gualeguaychu", "generalroca", "trelew", "rawson", 
+        "salta", "chaco", "gualeguaychu", "generalroca", "trelew", "rawson", 
         "bernal", "sanvicente", "carrilobo", "bellville", "embalse", "chaque", "comodororivadavia",
         "viedma", "sanbernardo", "puntaalta", "villagesell", "bellavista", "villaelisa", "algarrobo", "santarosa", 
         "sanmartindelosandes", "villamaría", "villadelparque", "alvear", "lacañada", 
-        "santa rosa", "elcalafate", "generalpico", "necochea", "tigre", "colon", "laprida", "mardelplata"
+        "santa rosa", "elcalafate", "generalpico", "necochea", "colon", "laprida", "mardelplata"
     }
 
 
@@ -92,7 +103,7 @@ def load_base_words() -> Set[str]:
         "huracan", "talleres", "belgrano", "banfield", "lanus"
     }
     
-    años = {str(year) for year in range(1900, 2050)}
+    anios = {str(year) for year in range(1900, 2050)}
     
     comercios = {
     "shopping", "unicenter", "abasto", "altoplata", "dotbaires", 
@@ -126,7 +137,8 @@ def load_base_words() -> Set[str]:
     "lasaña", "la parrilla", "pizzeta", "lascanteras", "tequila", "helados", 
     "vips", "sushi", "la cadena", "tacobar", "bakery", "centrococina", "sushi", 
     "correoargentino", "andreani", "ocasa", "mercadolibre", "jotabe", 
-    "cargill", "francini", "ypf", "shell", "pampaenergia", "telecom", "lagaleria", "lagalera"
+    "cargill", "francini", "ypf", "shell", "pampaenergia", "telecom", "lagaleria", "lagalera",
+    "braga","charlotte"
     }
 
     
@@ -137,8 +149,17 @@ def load_base_words() -> Set[str]:
         "uca","um","uno","unlam","unahur","uade","up","usal","unlu","uflo","ub","untref","unsam",
         "colegio", "escuela", "escuela tecnica","unla","uai"
     }
+
+    frases_cortas = {
+        "laverdadnoslibera", "eltiempopasa", "nuncasabremos", "siguetusalud", 
+        "unmundomejor", "lavidaesbella", "nuncasinsentido", "elamorvence", 
+        "sueñosyrealidad", "juntosporsiempre","teamo","elamordemivida"
+    }
+
+    fechas = {f"{day:02d}{month:02d}{year}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31}
+    fechas.update({f"{day:02d}{month:02d}{str(year)[-2:]}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31})
      
-    return nombres | lugares | empresas | deportes | años | comercios | universidades
+    return nombres | lugares | empresas | deportes | anios | comercios | universidades | apellidos | nicknames | frases_cortas | fechas
 
 def generate_combinations(words: Set[str], max_len: int, include_special: bool) -> Set[str]:
     result = set()
