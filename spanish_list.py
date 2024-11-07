@@ -61,75 +61,6 @@ def load_base_words() -> Set[str]:
     }
 
 
-
-    lugares = {
-    "buenosaires", "cordoba", "rosario", "mendoza", "laplata", "quilmes", "lanus",
-    "avellaneda", "sanisidro", "tigre", "pilar", "moron", "municipio", "municipalidad",
-    "salta", "tucuman", "neuquen", "bariloche", "mardelplata", "tandil",
-    "catamarca", "chaco", "chubut", "corrientes", "entre rios", "formosa", 
-    "jujuy", "la pampa", "la rioja", "misiones", "neuquen", "rio negro", 
-    "san juan", "san luis", "santa cruz", "santa fe", "santiago del estero", 
-    "tierra del fuego", "tucuman", "rosario", "san fernando", "san miguel", "moron", 
-    "tres de febrero", "berazategui","berisso", "lomas de zamora", "san martin", "marcos paz", 
-    "caba", "villa maria", "bahia blanca", "parana", "posadas", "las heras", "calafate", "san rafael", "san juan", 
-    "tigre", "salta", "chaco", "gualeguaychu", "general roca", "trelew", "rawson", 
-    "bernal", "san vicente", "carrilobo", "bell ville", "embalse", "chaque", "comodoro rivadavia",
-    "viedma", "san bernardo", "punta alta", "villa gesell", "villa elisa", "algarrobo", "santa rosa", 
-    "san martin de los andes", "villa maría", "villa del parque", "alvear", "la cañada", 
-    "santa rosa", "el calafate", "general pico", "necochea", "tigre", "colón", "laprida"
-    }
-
-    empresas = {
-        "claro", "personal", "movistar", "fibertel", "flow", "telecentro",
-        "adidas", "nike", "samsung", "philips", "sony", "lg", "whirlpool",
-        "garbarino", "falabella", "coto", "carrefour", "walmart", "easy",
-        "mercadolibre", "amazon", "apple", "microsoft", "google",
-        "starbucks", "mcdonalds", "burguerking", "mostaza", "wendys", "cafe",
-        "cafe tortoni", "iluminacion", "cafe de los artistas"
-    }
-    
-    deportes = {
-        "campeon", "campeones", "futbol", "racing", "river", "boca", "independiente",
-        "estudiantes", "velez", "sanlorenzo", "newells", "central", "gimnasia",
-        "huracan", "talleres", "belgrano", "banfield", "lanus"
-    }
-    
-    
-    comercios = {
-    "shopping", "unicenter", "abasto", "altoplata", "dotbaires", 
-    "galeria", "plaza", "terminal", "estacion", "aeropuerto", 
-    "alcorta", "santa fe shopping", "devoto shopping", "paseo quilmes", 
-    "madero shopping", "paseo la plaza", "paseo rosa", "paseo zona norte", 
-    "shopping sur", "liniers", "shopping norte", "paseo del sol", 
-    "buenavista shopping", "caballito shopping", "rosario shopping", "lomas shopping", 
-    "open 25", "cinepolis", "cinemark", "cines outlet", "palermo", "villages", 
-    "rivadavia", "megatone", "gondolas", "mi ciudad", "falabella", "carrefour", 
-    "easy", "sodimac", "coto", "disco", "jumbo", "lidl", "walmart", "yaguaron", 
-    "musimundo", "pepsi", "la anónima", "the gallery", "despensa", "supermercado", 
-    "unilac", "supermercados dia", "galeria zona sur", "compumundo", "i-store", 
-    "la vida", "particular", "tacito", "danone", "tarea", "electro", "luis borges", 
-    "factura", "maxi", "starbucks", "cafe martinez", "café de la plaza", "lattente", 
-    "tucan", "café tortoni", "la panera rosa", "libros y café", "mundo café", 
-    "tea connection", "café bolivar", "el club de la milanesa", "donado", "terraza", 
-    "la casa del té", "café vinilo", "peña", "el hornero", "boca café", "bonafide", 
-    "garbarino", "compumundo", "frávega", "muebles dico", "personal", "movistar", 
-    "claro", "net", "fibertel", "cablevision", "apple", "samsung", "lg", "hp", 
-    "motorola", "lenovo", "dell", "asus", "acer", "xbox", "playstation", "microsoft", 
-    "logitech", "kaspersky", "casio", "alcatel", "eurocom", "blu", "toshiba", 
-    "ropa", "nike", "adidas", "lacoste", "le coq sportif", "puma", "reebok", 
-    "complot", "cdg", "zara", "bershka", "stradivarius", "pull and bear", "gap", 
-    "h&m", "mango", "kenzo", "emporio armani", "valentino", "dior", "chanel", 
-    "arcor", "marihuana", "coca cola", "fanta", "pepsi", "cerveza quilmes", 
-    "heineken", "swiss", "emporio", "grido", "candy", "toblerone", "nescafé", 
-    "nestlé", "las carmelitas", "kellogg's", "molinos", "latam", "rio", 
-    "easy", "sodimac", "homecenter", "falabella", "todo hogar", "lafam", "tienda naranja", 
-    "mc donalds", "burger king", "subway", "dominos", "kfc", "sushi roll", 
-    "lasaña", "la parrilla", "pizzeta", "las canteras", "tequila", "helados", 
-    "vips", "sushi", "la cadena", "tacobar", "bakery", "centro cocina", "sushi", 
-    "correo argentino", "andreani", "ocasa", "mercado libre", "jotabe", 
-    "cargill", "francini", "ypf", "shell", "pampa energia", "telecom"
-    }
-
     
     nicknames = {
         "tincho", "rodo", "fran", "licha", "pato", "guille", "pipa", "tato", "chino", "lucho",
@@ -152,7 +83,7 @@ def load_base_words() -> Set[str]:
         "bernal", "sanvicente", "carrilobo", "bellville", "embalse", "chaque", "comodororivadavia",
         "viedma", "sanbernardo", "puntaalta", "villagesell", "bellavista", "villaelisa", "algarrobo", "santarosa", 
         "sanmartindelosandes", "villamaría", "villadelparque", "alvear", "lacañada", 
-        "santa rosa", "elcalafate", "generalpico", "necochea", "colon", "laprida", "mardelplata"
+        "elcalafate", "generalpico", "necochea", "colon", "laprida", "mardelplata"
     }
 
 
@@ -185,8 +116,8 @@ def load_base_words() -> Set[str]:
     "musimundo", "pepsi", "laanonima", "thegallery", "despensa", "supermercado", 
     "unilac", "supermercados dia", "galeriazonasur", "compumundo", "i-store", 
     "lavida", "particular", "tacito", "danone", "tarea", "electro", "luisborges", 
-    "factura", "maxi", "starbucks", "cafe martinez", "cafedelaplaza", "lattente", 
-    "tucan", "café tortoni", "lapanerarosa", "librosycafe", "mundocafe", 
+    "factura", "maxi", "starbucks", "cafemartinez", "cafedelaplaza", "lattente", 
+    "tucan", "cafetortoni", "lapanerarosa", "librosycafe", "mundocafe", 
     "teaconnection", "cafebolivar", "elclubdelamilanesa", "donado", "terraza", 
     "lacasadelte", "cafevinilo", "peña", "elhornero", "bocacafe", "bonafide", 
     "garbarino", "compumundo", "fravega", "mueblesdico", "personal", "movistar", 
@@ -194,15 +125,15 @@ def load_base_words() -> Set[str]:
     "motorola", "lenovo", "dell", "asus", "acer", "xbox", "playstation", "microsoft", 
     "logitech", "kaspersky", "casio", "alcatel", "eurocom", "blu", "toshiba", 
     "ropa", "nike", "adidas", "lacoste", "lecoqsportif", "puma", "reebok", 
-    "complot", "cdg", "zara", "bershka", "stradivarius", "pull and bear", "gap", 
+    "complot", "cdg", "zara", "bershka", "stradivarius", "pullandbear", "gap", 
     "h&m", "mango", "kenzo", "emporio armani", "valentino", "dior", "chanel", 
-    "arcor", "marihuana", "cocacola", "fanta", "pepsi", "cerveza quilmes", 
+    "arcor", "marihuana", "cocacola", "fanta", "pepsi", "cervezaquilmes", 
     "heineken", "swiss", "emporio", "grido", "candy", "toblerone", "nescafe", 
     "nestle", "lascarmelitas", "kellogg's", "molinos", "latam", "rio", 
     "easy", "sodimac", "homecenter", "falabella", "todo hogar", "lafam", "tiendanaranja", 
-    "mc donalds", "burger king", "subway", "dominos", "kfc", "sushi roll", 
-    "lasaña", "la parrilla", "pizzeta", "lascanteras", "tequila", "helados", 
-    "vips", "sushi", "la cadena", "tacobar", "bakery", "centrococina", "sushi", 
+    "mc donalds", "burgerking", "subway", "dominos", "kfc", "sushiroll", "sushiclub"
+    "lasaña", "laparrilla", "pizzeta", "lascanteras", "tequila", "helados", 
+    "vips", "sushi", "lacadena", "tacobar", "bakery", "centrococina",  
     "correoargentino", "andreani", "ocasa", "mercadolibre", "jotabe", 
     "cargill", "francini", "ypf", "shell", "pampaenergia", "telecom", "lagaleria", "lagalera",
     "braga","charlotte"
@@ -223,22 +154,26 @@ def load_base_words() -> Set[str]:
         "sueñosyrealidad", "juntosporsiempre","teamo","elamordemivida"
     }
 
-    fechas = {f"{day:02d}{month:02d}{year}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31}
-    fechas.update({f"{day:02d}{month:02d}{str(year)[-2:]}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31})
-     
 
     anios = {str(year) for year in range(1900, 2050)}
      
-    return nombres | apellidos | lugares | empresas | deportes | comercios | universidades | frases_cortas | anios
+    return nombres | apellidos | nicknames | lugares | empresas | deportes | comercios | universidades | frases_cortas | anios
 
 def generate_combinations(words: Set[str], max_len: int, include_special: bool) -> Set[str]:
     result = set()
-    chars = string.ascii_letters + string.digits
+    chars_upper = string.ascii_uppercase + string.digits
+    chars_lower = string.ascii_lowercase + string.digits
     special_chars = "!@#$%^&*-_+=."
     
-    if include_special:
-        chars += special_chars
     
+    if include_special:
+        chars_upper += special_chars
+        chars_lower += special_chars
+        
+    
+    fechas = {f"{day:02d}{month:02d}{year}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31}
+    fechas.update({f"{day:02d}{month:02d}{str(year)[-2:]}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31})
+     
     
     for word in words:
         if len(word) <= max_len:
@@ -273,18 +208,41 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
     
     
     words_list = list(words)
+
     for _ in range(min(len(words_list) * 10, 5000)):
         word1 = random.choice(words_list)
         word2 = random.choice(words_list)
         combined = f"{word1}y{word2}"
         if len(combined) <= max_len:
             result.add(combined.lower())
-    
-    
+         
+            
+            for fecha in fechas:
+                combined_with_date = f"{combined}_{fecha}"
+                if len(combined_with_date) <= max_len:
+                    result.add(combined_with_date.lower())
+
+        for sign in ['*', '&']:
+            combined_with_sign = f"{word1}{sign}{word2}"
+            if len(combined_with_sign) <= max_len:
+                result.add(combined_with_sign.lower())             
+
+
     for _ in range(5000):
-        length = random.randint(6, max_len)
-        random_str = ''.join(random.choices(chars, k=length))
-        result.add(random_str)
+        seq_10_upper = ''.join(random.choices(chars_upper, k=10))
+        seq_10_lower = ''.join(random.choices(chars_lower, k=10))
+        result.add(seq_10_upper)
+        result.add(seq_10_lower)
+
+        seq_8_upper = ''.join(random.choices(chars_upper, k=8))
+        seq_8_lower = ''.join(random.choices(chars_lower, k=8))
+        result.add(seq_8_upper)
+        result.add(seq_8_lower)
+
+        seq_12_upper = ''.join(random.choices(chars_upper, k=12))
+        seq_12_lower = ''.join(random.choices(chars_lower, k=12))
+        result.add(seq_12_upper)
+        result.add(seq_12_lower)             
     
     return result
 
