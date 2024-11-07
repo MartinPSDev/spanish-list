@@ -19,62 +19,58 @@ def print_banner():
     print(banner)
 
 def load_base_words() -> Set[str]:
-    # Nombres de personas
+    
     nombres = {
-    "abigail", "abel", "abraham", "adalberto", "adela", "adelaida", "adrian", "adriana", 
-    "agustin", "alba", "alberto", "alejandra", "alejandro", "alex", "alexander", "alexandra", 
-    "alicia", "alma", "alvaro", "amalia", "amanda", "ana", "andrea", "andres", "angel", 
-    "angela", "anibal", "anita", "antonio", "araceli", "ariel", "armando", "arturo", 
-    "augusto", "aurora", "axel", "barbara", "beatriz", "belen", "benito", "benjamin", 
-    "bianca", "blanca", "brenda", "bruno", "camila", "candela", "carla", "carlos", 
-    "carmen", "carolina", "catalina", "cecilia", "celeste", "celia", "claudio", 
-    "claudia", "cristian", "cristina", "cynthia", "daniel", "daniela", "dario", 
-    "deborah", "delia", "diego", "diana", "dina", "doris", "eduardo", "efrain", 
-    "elena", "elias", "elisa", "elizabeth", "elvira", "emilia", "emiliano", "emilio", 
-    "encarnacion", "erick", "ernesto", "esperanza", "esteban", "estela", "eugenia", 
-    "eugenio", "eva", "facundo", "fabiola", "felipe", "felix", "fernanda", "fernando", 
-    "fidel", "flor", "florencia", "francisco", "franco", "fredy", "frida", "gabriel", 
-    "gabriela", "genaro", "gerardo", "gloria", "graciela", "guillermo", "gustavo", 
-    "hector", "herman", "herminia", "hilda", "hugo", "ignacio", "ilaria", "iliana", 
-    "inés", "irene", "irina", "isabel", "isabella", "isidro", "ivan", "jacinta", 
-    "jaime", "javier", "jessica", "jimena", "joaquin", "jorge", "josé", "josefa", 
-    "josefina", "juan", "juana", "julia", "juliana", "julieta", "justina", "karina", 
-    "karen", "karla", "laura", "leandro", "leonardo", "leonor", "leticia", "lidia", 
-    "liliana", "lorena", "lourdes", "lucas", "lucia", "luciana", "luis", "luisa", 
-    "luz", "magdalena", "manuela", "manuel", "marcela", "marcia", "marcos", "margarita", 
-    "maria", "mariana", "mariano", "marisol", "marta", "martin", "martina", "mateo", 
-    "matias", "maximiliano", "melisa", "mercedes", "micaela", "miguel", "miriam", 
-    "mireya", "mirta", "monica", "montserrat", "nancy", "natalia", "natasha", "nelson", 
-    "nicolas", "nicole", "nina", "noelia", "nora", "norberto", "norma", "olga", 
-    "omar", "oscar", "pablo", "pamela", "paola", "paulina", "patricia", "paula", 
-    "pedro", "pilar", "rafael", "ramiro", "raquel", "rebecca", "reina", "renata", 
-    "ricardo", "roberto", "rocio", "rodolfo", "romina", "rosa", "rosario", "rubén", 
-    "sabrina", "salvador", "samanta", "samuel", "sandra", "sara", "sebastian", "selena", 
-    "sergio", "silvana", "silvia", "simón", "sofia", "sonia", "susana", "tamara", 
-    "teodoro", "teresa", "tomás", "ulises", "ursula", "valentina", "valeria", "vanessa", 
-    "verónica", "vicente", "victor", "victoria", "viviana", "wilfredo", "ximena", 
-    "yolanda", "yvette", "zaida", "zoe", "zulema"
-}
-
+        "abigail", "abel", "abraham", "adalberto", "adela", "adelaida", "adrian", "adriana", 
+        "agustin", "alba", "alberto", "alejandra", "alejandro", "alex", "alexander", "alexandra", 
+        "alicia", "alma", "alvaro", "amalia", "amanda", "ana", "andrea", "andres", "angel", 
+        "angela", "anibal", "anita", "antonio", "araceli", "ariel", "armando", "arturo", 
+        "augusto", "aurora", "axel", "barbara", "beatriz", "belen", "benito", "benjamin", 
+        "bianca", "blanca", "brenda", "bruno", "camila", "candela", "carla", "carlos", 
+        "carmen", "carolina", "catalina", "cecilia", "celeste", "celia", "claudio", 
+        "claudia", "cristian", "cristina", "cynthia", "daniel", "daniela", "dario", 
+        "deborah", "delia", "diego", "diana", "dina", "doris", "eduardo", "efrain", 
+        "elena", "elias", "elisa", "elizabeth", "elvira", "emilia", "emiliano", "emilio", 
+        "encarnacion", "erick", "ernesto", "esperanza", "esteban", "estela", "eugenia", 
+        "eugenio", "eva", "facundo", "fabiola", "felipe", "felix", "fernanda", "fernando", 
+        "fidel", "flor", "florencia", "francisco", "franco", "fredy", "frida", "gabriel", 
+        "gabriela", "genaro", "gerardo", "gloria", "graciela", "guillermo", "gustavo", 
+        "hector", "herman", "herminia", "hilda", "hugo", "ignacio", "ilaria", "iliana", 
+        "inés", "irene", "irina", "isabel", "isabella", "isidro", "ivan", "jacinta", 
+        "jaime", "javier", "jessica", "jimena", "joaquin", "jorge", "josé", "josefa", 
+        "josefina", "juan", "juana", "julia", "juliana", "julieta", "justina", "karina", 
+        "karen", "karla", "laura", "leandro", "leonardo", "leonor", "leticia", "lidia", 
+        "liliana", "lorena", "lourdes", "lucas", "lucia", "luciana", "luis", "luisa", 
+        "luz", "magdalena", "manuela", "manuel", "marcela", "marcia", "marcos", "margarita", 
+        "maria", "mariana", "mariano", "marisol", "marta", "martin", "martina", "mateo", 
+        "matias", "maximiliano", "melisa", "mercedes", "micaela", "miguel", "miriam", 
+        "mireya", "mirta", "monica", "montserrat", "nancy", "natalia", "natasha", "nelson", 
+        "nicolas", "nicole", "nina", "noelia", "nora", "norberto", "norma", "olga", 
+        "omar", "oscar", "pablo", "pamela", "paola", "paulina", "patricia", "paula", 
+        "pedro", "pilar", "rafael", "ramiro", "raquel", "rebecca", "reina", "renata", 
+        "ricardo", "roberto", "rocio", "rodolfo", "romina", "rosa", "rosario", "rubén", 
+        "sabrina", "salvador", "samanta", "samuel", "sandra", "sara", "sebastian", "selena", 
+        "sergio", "silvana", "silvia", "simón", "sofia", "sonia", "susana", "tamara", 
+        "teodoro", "teresa", "tomás", "ulises", "ursula", "valentina", "valeria", "vanessa", 
+        "verónica", "vicente", "victor", "victoria", "viviana", "wilfredo", "ximena", 
+        "yolanda", "yvette", "zaida", "zoe", "zulema"
+    }
     
-    
-    nombres.update(nombres)
-
     lugares = {
-    "buenosaires", "cordoba", "rosario", "mendoza", "laplata", "quilmes", "lanus",
-    "avellaneda", "sanisidro", "tigre", "pilar", "moron", "municipio", "municipalidad",
-    "salta", "tucuman", "neuquen", "bariloche", "mardelplata", "tandil",
-    "catamarca", "chaco", "chubut", "corrientes", "entre rios", "formosa", 
-    "jujuy", "la pampa", "la rioja", "misiones", "neuquen", "rio negro", 
-    "san juan", "san luis", "santa cruz", "santa fe", "santiago del estero", 
-    "tierra del fuego", "tucuman", "rosario", "san fernando", "san miguel", "moron", 
-    "tres de febrero", "berazategui","berisso", "lomas de zamora", "san martin", "marcos paz", 
-    "caba", "villa maria", "bahia blanca", "parana", "posadas", "las heras", "calafate", "san rafael", "san juan", 
-    "tigre", "salta", "chaco", "gualeguaychu", "general roca", "trelew", "rawson", 
-    "bernal", "san vicente", "carrilobo", "bell ville", "embalse", "chaque", "comodoro rivadavia",
-    "viedma", "san bernardo", "punta alta", "villa gesell", "villa elisa", "algarrobo", "santa rosa", 
-    "san martin de los andes", "villa maría", "villa del parque", "alvear", "la cañada", 
-    "santa rosa", "el calafate", "general pico", "necochea", "tigre", "colón", "laprida"
+        "buenosaires", "cordoba", "rosario", "mendoza", "laplata", "quilmes", "lanus",
+        "avellaneda", "sanisidro", "tigre", "pilar", "moron", "municipio", "municipalidad",
+        "salta", "tucuman", "neuquen", "bariloche", "mardelplata", "tandil",
+        "catamarca", "chaco", "chubut", "corrientes", "entre rios", "formosa", 
+        "jujuy", "lapampa", "larioja", "misiones", "neuquen", "rionegro", 
+        "san juan", "san luis", "santa cruz", "santa fe", "santiago del estero", 
+        "tierradelfuego", "tucuman", "rosario", "san fernando", "san miguel", "moron", 
+        "tresdefebrero", "berazategui", "berisso", "lomasdezamora", "sanmartin", "marcospaz", 
+        "caba", "villamaria", "bahia blanca", "parana", "posadas", "las heras", "calafate", "sanrafael", "sanjuan", 
+        "tigre", "salta", "chaco", "gualeguaychu", "general roca", "trelew", "rawson", 
+        "bernal", "sanvicente", "carrilobo", "bellville", "embalse", "chaque", "comodoro rivadavia",
+        "viedma", "sanbernardo", "puntaalta", "villagesell", "bellavista", "villaelisa", "algarrobo", "santarosa", 
+        "sanmartindelosandes", "villamaría", "villadelparque", "alvear", "lacañada", 
+        "santa rosa", "elcalafate", "generalpico", "necochea", "tigre", "colón", "laprida", "mardelplata"
     }
 
     empresas = {
@@ -83,62 +79,82 @@ def load_base_words() -> Set[str]:
         "garbarino", "falabella", "coto", "carrefour", "walmart", "easy",
         "mercadolibre", "amazon", "apple", "microsoft", "google",
         "starbucks", "mcdonalds", "burguerking", "mostaza", "wendys", "cafe",
-        "cafe tortoni", "iluminacion", "cafe de los artistas"
+        "cafe tortoni", "iluminacion", "cafedelosartistas"
     }
     
     deportes = {
         "campeon", "campeones", "futbol", "racing", "river", "boca", "independiente",
         "estudiantes", "velez", "sanlorenzo", "newells", "central", "gimnasia",
-        "huracan", "talleres", "belgrano", "banfield", "lanus"
+        "huracan", "talleres", "belgrano", "banfield", "lanus", "cabj", "carp", "casla",
+        "cai", "platense", "ferro", "chicago", "godoycruz", "argentinos", "argentinosjuniors",
+        "ferro", "ferrocarriloeste"
     }
     
     años = {str(year) for year in range(1900, 2050)}
     
     comercios = {
-    "shopping", "unicenter", "abasto", "altoplata", "dotbaires", 
-    "galeria", "plaza", "terminal", "estacion", "aeropuerto", 
-    "alcorta", "santa fe shopping", "devoto shopping", "paseo quilmes", 
-    "madero shopping", "paseo la plaza", "paseo rosa", "paseo zona norte", 
-    "shopping sur", "liniers", "shopping norte", "paseo del sol", 
-    "buenavista shopping", "caballito shopping", "rosario shopping", "lomas shopping", 
-    "open 25", "cinepolis", "cinemark", "cines outlet", "palermo", "villages", 
-    "rivadavia", "megatone", "gondolas", "mi ciudad", "falabella", "carrefour", 
-    "easy", "sodimac", "coto", "disco", "jumbo", "lidl", "walmart", "yaguaron", 
-    "musimundo", "pepsi", "la anónima", "the gallery", "despensa", "supermercado", 
-    "unilac", "supermercados dia", "galeria zona sur", "compumundo", "i-store", 
-    "la vida", "particular", "tacito", "danone", "tarea", "electro", "luis borges", 
-    "factura", "maxi", "starbucks", "cafe martinez", "café de la plaza", "lattente", 
-    "tucan", "café tortoni", "la panera rosa", "libros y café", "mundo café", 
-    "tea connection", "café bolivar", "el club de la milanesa", "donado", "terraza", 
-    "la casa del té", "café vinilo", "peña", "el hornero", "boca café", "bonafide", 
-    "garbarino", "compumundo", "frávega", "muebles dico", "personal", "movistar", 
-    "claro", "net", "fibertel", "cablevision", "apple", "samsung", "lg", "hp", 
-    "motorola", "lenovo", "dell", "asus", "acer", "xbox", "playstation", "microsoft", 
-    "logitech", "kaspersky", "casio", "alcatel", "eurocom", "blu", "toshiba", 
-    "ropa", "nike", "adidas", "lacoste", "le coq sportif", "puma", "reebok", 
-    "complot", "cdg", "zara", "bershka", "stradivarius", "pull and bear", "gap", 
-    "h&m", "mango", "kenzo", "emporio armani", "valentino", "dior", "chanel", 
-    "arcor", "marihuana", "coca cola", "fanta", "pepsi", "cerveza quilmes", 
-    "heineken", "swiss", "emporio", "grido", "candy", "toblerone", "nescafé", 
-    "nestlé", "las carmelitas", "kellogg's", "molinos", "latam", "rio", 
-    "easy", "sodimac", "homecenter", "falabella", "todo hogar", "lafam", "tienda naranja", 
-    "mc donalds", "burger king", "subway", "dominos", "kfc", "sushi roll", 
-    "lasaña", "la parrilla", "pizzeta", "las canteras", "tequila", "helados", 
-    "vips", "sushi", "la cadena", "tacobar", "bakery", "centro cocina", "sushi", 
-    "correo argentino", "andreani", "ocasa", "mercado libre", "jotabe", 
-    "cargill", "francini", "ypf", "shell", "pampa energia", "telecom"
+        "shopping", "unicenter", "abasto", "altoplata", "dotbaires", 
+        "galeria", "plaza", "terminal", "estacion", "aeropuerto", 
+        "alcorta", "santafeshopping", "devotoshopping", "paseoquilmes", 
+        "madero shopping", "paseo la plaza", "paseo rosa", "paseozonanorte", 
+        "shopping sur", "liniers", "shopping norte", "paseodelsol", 
+        "buenavista shopping", "caballito shopping", "rosarioshopping", "lomasshopping", 
+        "open 25", "cinepolis", "cinemark", "cines outlet", "palermo", "villages", 
+        "rivadavia", "megatone", "gondolas", "mi ciudad", "falabella", "carrefour", 
+        "easy", "sodimac", "coto", "disco", "jumbo", "lidl", "walmart", "yaguaron", 
+        "musimundo", "pepsi", "laanonima", "thegallery", "despensa", "supermercado", 
+        "unilac", "supermercados dia", "galeria zona sur", "compumundo", "i-store", 
+        "la vida", "particular", "tacito", "danone", "tarea", "electro", "luis borges", 
+        "factura", "maxi", "starbucks", "cafemartinez", "café de la plaza", "lattente", 
+        "tucan", "café tortoni", "la panerarosa", "librosycafe", "mundocafe", 
+        "teaconnection", "cafebolivar", "elclubdelamilanesa", "donado", "terraza", 
+        "lacasadelte", "cafevinilo", "peña", "elhornero", "bocacafé", "bonafide", 
+        "garbarino", "compumundo", "fravega", "mueblesdico", "personal", "movistar", 
+        "claro", "net", "fibertel", "cablevision", "apple", "samsung", "lg", "hp", 
+        "motorola", "lenovo", "dell", "asus", "acer", "xbox", "playstation", "microsoft", 
+        "logitech", "kaspersky", "casio", "alcatel", "eurocom", "blu", "toshiba", 
+        "ropa", "nike", "adidas", "lacoste", "le coq sportif", "puma", "reebok", 
+        "complot", "cdg", "zara", "bershka", "stradivarius", "pullandbear", "gap", 
+        "h&m", "mango", "kenzo", "emporioarmani", "valentino", "dior", "chanel", 
+        "arcor", "marihuana", "cocacola", "fanta", "pepsi", "cerveza quilmes", 
+        "heineken", "swiss", "emporio", "grido", "candy", "toblerone", "nescafé", 
+        "nestlé", "lascarmelitas", "kellogg's", "molinos", "latam", "rio", 
+        "easy", "sodimac", "homecenter", "falabella", "todohogar", "lafam", "tiendanaranja", 
+        "mc donalds", "burgerking", "subway", "dominos", "kfc", "sushiroll", 
+        "lasaña", "la parrilla", "pizzeta", "las canteras", "tequila", "helados", 
+        "vips", "sushi", "la cadena", "tacobar", "bakery", "centrococina", "sushi", 
+        "correoargentino", "andreani", "ocasa", "mercadolibre", "jotabe", 
+        "cargill", "francini", "ypf", "shell", "pampaenergia", "telecom","lagaleria"
     }
 
-    
-
     universidades = {
-        "uba", "utn", "universidad de buenos aires", "universidad nacional de la plata",
-        "universidad nacional de cordoba", "universidad de la matanza", "universidad catolica",
+        "uba", "utn", "universidaddebuenosaires", "universidadnacionaldelaplata",
+        "universidad nacional de cordoba", "universidad de la matanza", "universidadcatolica",
         "uca","um","uno","unlam","unahur","uade","up","usal","unlu","uflo","ub","untref","unsam",
         "colegio", "escuela", "escuela tecnica","unla","uai"
     }
      
-    return nombres | lugares | empresas | deportes | años | comercios | universidades
+    apellidos = {
+        "perez", "lopez", "ramirez", "soto", "nunez", "gonzalez", "fernandez", "martinez", 
+        "rodriguez", "diaz", "torres", "castro", "vazquez", "morales", "jimenez", 
+        "hernandez", "pineda", "salazar", "mendoza", "carrillo", "sandoval","nuñez","castro"
+    }
+
+    nicknames = {
+        "tincho", "rodo", "fran", "licha", "pato", "guille", "pipa", "tato", "chino", "lucho",
+        "rama","pancho", "santi", "joaco", "rulo", "pela", "mudo", "negro", "colo", "pipi"
+    }
+
+    fechas = {f"{day:02d}{month:02d}{year}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31}
+    fechas.update({f"{day:02d}{month:02d}{str(year)[-2:]}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31})
+
+    frases_cortas = {
+        "laverdadnoslibera", "eltiempopasa", "nuncasabremos", "siguetusalud", 
+        "unmundomejor", "lavidaesbella", "nuncasinsentido", "elamorvence", 
+        "sueñosyrealidad", "juntosporsiempre", "teamo","elamordemivida","miamor"
+    }
+
+    return nombres | lugares | empresas | deportes | años | comercios | universidades | apellidos | nicknames | fechas | frases_cortas
 
 def generate_combinations(words: Set[str], max_len: int, include_special: bool) -> Set[str]:
     result = set()
@@ -148,20 +164,16 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
     if include_special:
         chars += special_chars
     
-    
     for word in words:
         if len(word) <= max_len:
-            
             result.add(word.lower())
             result.add(word.upper())
             result.add(word.title())
-            
             
             for i in range(1000):
                 new_word = f"{word}{i}"
                 if len(new_word) <= max_len:
                     result.add(new_word)
-            
             
             leetspeak = (word.lower()
                         .replace('a', '4')
@@ -172,14 +184,12 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
             if len(leetspeak) <= max_len:
                 result.add(leetspeak)
             
-            
             if include_special:
                 for char in special_chars:
                     new_word = f"{word}{char}"
                     if len(new_word) <= max_len:
                         result.add(new_word)
                         result.add(f"{char}{word}")
-    
     
     words_list = list(words)
     for _ in range(min(len(words_list) * 10, 5000)):
@@ -188,7 +198,6 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
         combined = f"{word1}y{word2}"
         if len(combined) <= max_len:
             result.add(combined.lower())
-    
     
     for _ in range(5000):
         length = random.randint(6, max_len)
@@ -206,7 +215,6 @@ def main():
 
     print_banner()
     
-    
     if args.s:
         max_len = 8
         max_words = 20000
@@ -220,22 +228,21 @@ def main():
         max_words = None
         include_special = True
 
-    
     base_words = load_base_words()
     wordlist = generate_combinations(base_words, max_len, include_special)
-    
     
     if max_words:
         wordlist = set(list(wordlist)[:max_words])
     
-    
     timestamp = int(time.time())
     filename = f'spanish-dict_{timestamp}.txt'
     
-    
-    with open(filename, 'w', encoding='utf-8') as f:
-        for word in sorted(wordlist):
-            f.write(f"{word}\n")
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            for word in sorted(wordlist):
+                f.write(f"{word}\n")
+    except Exception as e:
+        print(f"Error al guardar el archivo: {e}")
     
     print(f"\nDiccionario generado con {len(wordlist)} palabras")
     print(f"Archivo guardado como: {filename}")
