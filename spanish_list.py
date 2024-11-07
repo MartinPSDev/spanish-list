@@ -5,6 +5,8 @@ import random
 import string
 import time
 from typing import List, Set
+import threading
+import sys 
 
 def print_banner():
     banner = """
@@ -52,7 +54,7 @@ def load_base_words() -> Set[str]:
     "teodoro", "teresa", "tomás", "ulises", "ursula", "valentina", "valeria", "vanessa", 
     "verónica", "vicente", "victor", "victoria", "viviana", "wilfredo", "ximena", 
     "yolanda", "yvette", "zaida", "zoe", "zulema"
-}
+    }
     
     apellidos = {
         "perez", "lopez", "ramirez", "soto", "nunez", "gonzalez", "fernandez", "martinez", 
@@ -159,35 +161,30 @@ def load_base_words() -> Set[str]:
      
     return nombres | apellidos | nicknames | lugares | empresas | deportes | comercios | universidades | frases_cortas | anios
 
+
 def generate_combinations(words: Set[str], max_len: int, include_special: bool) -> Set[str]:
     result = set()
     chars_upper = string.ascii_uppercase + string.digits
     chars_lower = string.ascii_lowercase + string.digits
     special_chars = "!@#$%^&*-_+=."
     
-    
     if include_special:
         chars_upper += special_chars
         chars_lower += special_chars
         
-    
     fechas = {f"{day:02d}{month:02d}{year}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31}
     fechas.update({f"{day:02d}{month:02d}{str(year)[-2:]}" for year in range(1960, 2051) for month in range(1, 13) for day in range(1, 32) if day <= 31})
      
-    
     for word in words:
         if len(word) <= max_len:
-        
             result.add(word.lower())
             result.add(word.upper())
             result.add(word.title())
-            
             
             for i in range(1000):
                 new_word = f"{word}{i}"
                 if len(new_word) <= max_len:
                     result.add(new_word)
-            
             
             leetspeak = (word.lower()
                         .replace('a', '4')
@@ -198,7 +195,6 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
             if len(leetspeak) <= max_len:
                 result.add(leetspeak)
             
-            
             if include_special:
                 for char in special_chars:
                     new_word = f"{word}{char}"
@@ -206,8 +202,11 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
                         result.add(new_word)
                         result.add(f"{char}{word}")
     
-    
     words_list = list(words)
+
+    
+    if not words_list:
+        return result  
 
     for _ in range(min(len(words_list) * 10, 5000)):
         word1 = random.choice(words_list)
@@ -216,7 +215,6 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
         if len(combined) <= max_len:
             result.add(combined.lower())
          
-            
             for fecha in fechas:
                 combined_with_date = f"{combined}_{fecha}"
                 if len(combined_with_date) <= max_len:
@@ -226,7 +224,6 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
             combined_with_sign = f"{word1}{sign}{word2}"
             if len(combined_with_sign) <= max_len:
                 result.add(combined_with_sign.lower())             
-
 
     for _ in range(5000):
         seq_10_upper = ''.join(random.choices(chars_upper, k=10))
@@ -246,6 +243,13 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
     
     return result
 
+def spinning_cursor():
+    while not stop_spinner.is_set():
+        for cursor in '|/-\\':
+            sys.stdout.write(f'\r{cursor} Generando diccionario...')
+            sys.stdout.flush()
+            time.sleep(0.1)
+
 def main():
     parser = argparse.ArgumentParser(description='Generador de diccionario en español')
     parser.add_argument('-s', action='store_true', help='Diccionario corto (20k palabras, max 8 chars)')
@@ -254,7 +258,6 @@ def main():
     args = parser.parse_args()
 
     print_banner()
-    
     
     if args.s:
         max_len = 8
@@ -270,16 +273,19 @@ def main():
         include_special = True
 
     base_words = load_base_words()
+   
+    global stop_spinner
+    stop_spinner = threading.Event()
+    spinner_thread = threading.Thread(target=spinning_cursor)
+    spinner_thread.start()
+
     wordlist = generate_combinations(base_words, max_len, include_special)
     
-
     if max_words:
         wordlist = set(list(wordlist)[:max_words])
     
-    
     timestamp = int(time.time())
     filename = f'spanish-dict_{timestamp}.txt'
-    
     
     with open(filename, 'w', encoding='utf-8') as f:
         for word in sorted(wordlist):
@@ -287,6 +293,10 @@ def main():
     
     print(f"\nDiccionario generado con {len(wordlist)} palabras")
     print(f"Archivo guardado como: {filename}")
+
+    
+    stop_spinner.set()
+    spinner_thread.join()  
 
 if __name__ == "__main__":
     main()
