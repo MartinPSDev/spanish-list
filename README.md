@@ -1,6 +1,6 @@
 # Spanish List 
 
-<img src="image.png" alt="Captura de pantalla de ConnectMeGUI" width="500">
+<img src="image.png" alt="" width="500">
 
 **Generador de diccionarios en español personalizados.**
 
