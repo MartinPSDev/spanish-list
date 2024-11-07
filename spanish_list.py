@@ -269,7 +269,7 @@ def main():
         include_special = True
     else:  
         max_len = 20
-        max_words = None
+        max_words = 800000
         include_special = True
 
     base_words = load_base_words()
@@ -297,6 +297,9 @@ def main():
     
     stop_spinner.set()
     spinner_thread.join()  
+
+    sys.stdout.write('\r' + ' ' * 30 + '\r')
+    sys.stdout.flush()
 
 if __name__ == "__main__":
     main()
