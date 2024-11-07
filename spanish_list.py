@@ -165,25 +165,24 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
     result = set()
     chars = string.ascii_letters + string.digits
     special_chars = "!@#$%^&*-_+=."
-    
+
     if include_special:
         chars += special_chars
+
     
-    
+    max_combinations = 1000000
+
     for word in words:
         if len(word) <= max_len:
-            
             result.add(word.lower())
             result.add(word.upper())
             result.add(word.title())
-            
-            
+
             for i in range(1000):
                 new_word = f"{word}{i}"
                 if len(new_word) <= max_len:
                     result.add(new_word)
-            
-            
+
             leetspeak = (word.lower()
                         .replace('a', '4')
                         .replace('e', '3')
@@ -192,30 +191,30 @@ def generate_combinations(words: Set[str], max_len: int, include_special: bool) 
                         .replace('s', '5'))
             if len(leetspeak) <= max_len:
                 result.add(leetspeak)
-            
-            
+
             if include_special:
                 for char in special_chars:
                     new_word = f"{word}{char}"
                     if len(new_word) <= max_len:
                         result.add(new_word)
                         result.add(f"{char}{word}")
-    
-    
+
     words_list = list(words)
-    for _ in range(min(len(words_list) * 10, 5000)):
+    combinations_count = 0  
+
+    while combinations_count < max_combinations:
         word1 = random.choice(words_list)
         word2 = random.choice(words_list)
         combined = f"{word1}y{word2}"
         if len(combined) <= max_len:
             result.add(combined.lower())
-    
-    
-    for _ in range(5000):
+            combinations_count += 1  
+
+    for _ in range(max_combinations):
         length = random.randint(6, max_len)
         random_str = ''.join(random.choices(chars, k=length))
         result.add(random_str)
-    
+
     return result
 
 def main():
