@@ -58,10 +58,20 @@ def load_base_words() -> Set[str]:
     }
     
     apellidos = {
-        "perez", "lopez", "ramirez", "soto", "nunez", "gonzalez", "fernandez", "martinez", 
-        "rodriguez", "diaz", "torres", "castro", "vazquez", "morales", "jimenez", 
-        "hernandez", "pineda", "salazar", "mendoza", "carrillo", "sandoval","nuñez","maradona",
-        "messi"
+    "abulafia", "adams", "alhassan", "alcala", "ares", "artola", "baudin", "bauer", "becker", 
+    "benarroch", "benitez", "bianchi", "caceres", "calfucura", "calabrese", "catania", 
+    "carriillo", "castro", "cohen", "cooper", "conti", "currilen", "dacosta", "delacruz", 
+    "delafuent", "delatorre", "delosrios", "dimasco", "duarte", "esposito", "etxeberria", 
+    "ferrari", "farre", "fischer", "fontana", "franco", "garcia", "gonzalez", "greco", 
+    "hermida", "hernandez", "huaman", "huenchuman", "ibnsaud", "ibnrushd", "iribar", 
+    "irigoyen", "irizar", "irizarry", "jones", "khalil", "kowalski", "lemaire", "levi", 
+    "lewandowski", "lombardi", "lourdes", "maza", "mazza", "mendoza", "meier", "miller","milei" 
+    "moretti", "movistar", "muller", "murphy", "nahuelpan", "nicosia", "normand", 
+    "nuñez", "omar", "onate", "parisi", "perez", "petrov", "pineda", "quiroga", 
+    "quispe", "ramirez", "reyes", "roca", "rodriguez", "romero", "ruiz", "russo", 
+    "sanchez", "saravia", "schneider", "schulz", "smith", "soto", "suarez", "taylor", 
+    "torres", "tripodi", "vanderlinden", "vega", "ventura", "wagner", "weber", 
+    "wolf", "yates", "zapata"
     }
 
 
@@ -69,25 +79,39 @@ def load_base_words() -> Set[str]:
     nicknames = {
         "tincho", "rodo", "fran", "licha", "pato", "guille", "pipa", "tato", "chino", "lucho",
         "rama","pancho", "santi", "joaco", "rulo", "pela", "mudo", "negro", "colo", "pipi","lio"
+        "manu", "willy","pulga","elpulga","lapulga","elefante","mono","elmono","loco","elloco","22",
+        "flaco","elflaco","tincho","boch","elbocha","bambino","tarzan", "cholo","elcholo","mago",
+        "elmago", "muñeco","elmuñeco", "muñe", "tolo","eltolo","satanas","diablo","diablito",
+        "diablillo", "elhacha", "elhacker", "elhaker", "hacker", "haker", "pitu","elpitu","cholo",
+        "elcholo", "eldiente", "diente", "chiquito", "payaso", "elpayaso", "maravilla", "picante",
+        "elpicante", "tweety", "chipi","chueco","huevo", "elhuevo", "laucha", "ellaucha", "obeja",
+        "elobeja", "laobeja" , "piojo", "elpiojo", "raton", "rata", "larata", "turco","elturco",
+        "rana", "larana", "jirafa", "lajirafa", "eljirafa", "rifle","elrifle", "tonga", "eltonga"
+        "pupi", "elpupi", "jao","yoa","panza", "elpanza","sapo", "elsapo", "eltigre", "tina", "pao",
+        "juli", "javo","jime","yesi","anto"
     }
 
 
 
     lugares = {
-        "buenosaires", "cordoba", "rosario", "mendoza", "laplata", "quilmes", "lanus",
-        "avellaneda", "sanisidro", "tigre", "pilar", "moron", "municipio", "municipalidad",
-        "salta", "tucuman", "neuquen", "bariloche", "mardelplata", "tandil",
-        "catamarca", "chaco", "chubut", "corrientes", "entre rios", "formosa", 
-        "jujuy", "lapampa", "larioja", "misiones", "neuquen", "rionegro", 
-        "san juan", "sanluis", "santacruz", "santafe", "santiagodelestero", 
-        "tierradelfuego", "tucuman", "rosario", "san fernando", "sanmiguel", "moron", 
-        "tresdefebrero", "berazategui", "berisso", "lomasdezamora", "sanmartin", "marcospaz", 
-        "caba", "villamaria", "bahiablanca", "parana", "posadas", "lasheras", "calafate", "sanrafael", "sanjuan", 
-        "salta", "chaco", "gualeguaychu", "generalroca", "trelew", "rawson", 
-        "bernal", "sanvicente", "carrilobo", "bellville", "embalse", "chaque", "comodororivadavia",
-        "viedma", "sanbernardo", "puntaalta", "villagesell", "bellavista", "villaelisa", "algarrobo", "santarosa", 
-        "sanmartindelosandes", "villamaría", "villadelparque", "alvear", "lacañada", 
-        "elcalafate", "generalpico", "necochea", "colon", "laprida", "mardelplata"
+    "buenosaires", "cordoba", "rosario", "mendoza", "laplata", "quilmes", "lanus",
+    "avellaneda", "sanisidro", "tigre", "pilar", "moron", "municipio", "municipalidad",
+    "salta", "tucuman", "neuquen", "bariloche", "mardelplata", "tandil",
+    "catamarca", "chaco", "chubut", "corrientes", "entre rios", "formosa", 
+    "jujuy", "lapampa", "larioja", "misiones", "neuquen", "rionegro", 
+    "san juan", "sanluis", "santacruz", "santafe", "santiagodelestero", 
+    "tierradelfuego", "tucuman", "rosario", "san fernando", "sanmiguel", "moron", 
+    "tresdefebrero", "berazategui", "berisso", "lomasdezamora", "sanmartin", "marcospaz", 
+    "caba", "villamaria", "bahiablanca", "parana", "posadas", "lasheras", "calafate", "sanrafael", "sanjuan", 
+    "salta", "chaco", "gualeguaychu", "generalroca", "trelew", "rawson", "escobar",
+    "bernal", "sanvicente", "carrilobo", "bellville", "embalse", "chaque", "comodororivadavia",
+    "viedma", "sanbernardo", "puntaalta", "villagesell", "bellavista", "villaelisa", "algarrobo", "santarosa", 
+    "sanmartindelosandes", "villamaría", "villadelparque", "alvear", "lacañada", 
+    "elcalafate", "generalpico", "necochea", "colon", "laprida", "mardelplata",
+    "ezeiza", "estebanecheverria", "generalrodriguez", "hurlingham", "joseczaz",
+    "lamatanza", "lujan", "malvinasargentinas", "merlo", "presidenteperon",
+    "sanfernando", "sanisidro", "sanmiguel", "sanvicente", "tigre", "vicentelopez", "zarate",
+    "benavidez", "escobar", "ituzaingo"
     }
 
 
@@ -103,7 +127,9 @@ def load_base_words() -> Set[str]:
     deportes = {
         "campeon", "campeones", "futbol", "racing", "river", "boca", "independiente",
         "estudiantes", "velez", "sanlorenzo", "newells", "central", "gimnasia",
-        "huracan", "talleres", "belgrano", "banfield", "lanus"
+        "huracan", "talleres", "belgrano", "banfield", "lanus", "argentinos","riestra",
+        "instituto","union","tigre","platense"
+
     }
     
     
