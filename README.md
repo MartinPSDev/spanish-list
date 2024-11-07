@@ -1,6 +1,6 @@
 # Spanish List 
 
-![image](./image.jpg)
+![image](./screenshot.png)
 
 **Generador de diccionarios en español**
 
